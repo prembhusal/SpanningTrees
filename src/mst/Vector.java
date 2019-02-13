@@ -3,34 +3,54 @@ package mst;
 import java.util.ArrayList;
 
 
-public  class Vector implements Measurable<Vector>{
-	int ID;
-	ArrayList<Integer> point;
-	Vector(int id, ArrayList<Integer>pt){
-		this.ID = id;
+public  class Vector {
+	int id;
+	ArrayList<Double> point;
+	Vector(int ID, ArrayList<Double>pt){
+		this.id = ID;
 		this.point = pt;
 	}
-	@Override
-	public Double Distance(Vector v) {
+	/*public Double Distance(Vector<T> v) {
 		Double dist =0.0;
 		for( int i=0; i< point.size();i++) {
-			dist += Math.pow((point.get(i)-v.point.get(i)),2);
+			Double t = point.get(i) - v.point.get(i);
+			dist += t*t;
 		}
 		return Math.sqrt(dist);
-	}
+	}*/
 	
 	
 	public static void main(String args[]) {
-		ArrayList<Integer>  p1 = new ArrayList<Integer>();
-		p1.add(1);
-		p1.add(1);
+		ArrayList<Double>  p1 = new ArrayList<Double>();
+		p1.add(1.0);
+		p1.add(1.0);
 		
-		ArrayList<Integer>  p2 = new ArrayList<Integer>();
-		p2.add(2);
-		p2.add(2);
+		ArrayList<Double>  p2 = new ArrayList<Double>();
+		p2.add(2.0);
+		p2.add(2.0);
 		
 		Vector vec1 = new Vector( 1,p1 );
 		Vector vec2 = new Vector(2,p2);
 		System.out.println(vec1.Distance(vec2));
+	}
+	
+	/*@Override
+	public Double Distance(Vector m) {
+		Double dist =0.0;
+		for( int i=0; i< point.size();i++) {
+			Double t = point.get(i).doubleValue() - m.point.get(i).doubleValue();
+			dist += t*t;
+		}
+		return Math.sqrt(dist);
+	}
+	*/
+
+	public Double Distance(Vector m) {
+		Double dist =0.0;
+		for( int i=0; i< point.size();i++) {
+			Double t = point.get(i).doubleValue() - m.point.get(i).doubleValue();
+			dist += t*t;
+		}
+		return Math.sqrt(dist);
 	}
 }
