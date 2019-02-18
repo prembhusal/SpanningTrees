@@ -1,5 +1,10 @@
 package mst;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.javatuples.Triplet;
@@ -10,9 +15,10 @@ public class Prims {
 public ArrayList<Triplet<Integer,Integer,Double>> mst (ArrayList<Vector>  record){
 	
 	Vector r = record.get(0);
-	
+	int[] l = new int[2];
 	
 	ArrayList<PrimVex> dv = new ArrayList<PrimVex>();
+	
 	for ( int i =0; i< record.size()-1;i++ ) {
 		if(record.get(i) != r) {
 			dv.add(new PrimVex(i,0,record.get(i).Distance(r)));
@@ -64,6 +70,7 @@ public PrimVex minByWeight(ArrayList<PrimVex> listV) {
 }
 	
 public static void main(String [] args) {
+	
 	ArrayList<Double>  p1 = new ArrayList<Double>();
 	p1.add(1.0);
 	p1.add(1.0);
@@ -96,6 +103,26 @@ public static void main(String [] args) {
 	for(int i =0;i< res.size(); i++) {
 		System.out.println(res.get(i).getValue0() + "," + res.get(i).getValue1()+ "," +res.get(i).getValue2());
 	}
+	
+	File file = new File("\\Users\\prembhusal\\test.txt"); 
+	  
+	  BufferedReader br = null;
+	try {
+		br = new BufferedReader(new FileReader(file));
+	} catch (FileNotFoundException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} 
+	  
+	  String st; 
+	  try {
+		while ((st = br.readLine()) != null) 
+		    System.out.println(st);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 
+	  
 	
 }
 }
