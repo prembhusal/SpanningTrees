@@ -109,16 +109,9 @@ public static void main(String [] args) {
 	  BufferedReader br = null;
 	try {
 		br = new BufferedReader(new FileReader(file));
-	} catch (FileNotFoundException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	} 
-	  
-	  String st; 
-	  try {
-		while ((st = br.readLine()) != null) 
+		while ((String st = br.readLine()) != null) 
 		    System.out.println(st);
-	} catch (IOException e) {
+	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	} 
